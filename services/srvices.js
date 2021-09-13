@@ -20,5 +20,30 @@ export const getPopularTv = async () => {
     return resp.data.results;
 };
 
+//Get Family Movies
+export const getFamilyMovies = async () => {
+    const resp = await axios.get(`${apiUrl}/discover/movie/?${apiKey}&with_genres=10751`);
+    return resp.data.results;
+};
+
+//Get Documentary 
+export const getDocumentary = async () => {
+    const resp = await axios.get(`${apiUrl}/discover/movie/?${apiKey}&with_genres=99`);
+    return resp.data.results;
+};
+
+//Get Horror
+export const getHorror = async () => {
+    const resp = await axios.get(`${apiUrl}/discover/movie/?${apiKey}&with_genres=27`);
+    return resp.data.results;
+};
+
+//Get Romance
+export const getRomance = async () => {
+    const resp = await axios.get(`${apiUrl}/discover/movie/?${apiKey}&with_genres=10749`);
+    return resp.data.results;
+};
+
+
 
   
