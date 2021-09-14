@@ -6,7 +6,7 @@ import Card from './Card';
 class List extends React.PureComponent {
     
     render() {
-        const {title, content} = this.props;
+        const {title, content, navigation} = this.props;
         return (
 
             <View style={styles.list}>
@@ -16,7 +16,7 @@ class List extends React.PureComponent {
             </View>
 
             <View>
-                <FlatList data={content} horizontal={true} renderItem={({item}) => <Card item={item} />}>
+                <FlatList data={content} horizontal={true} renderItem={({item}) => <Card navigation={navigation} item={item} />}>
                 </FlatList>
             </View>
             </View>

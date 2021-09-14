@@ -22,7 +22,7 @@ import Error from "../components/Error";
 
 const dimensions = Dimensions.get("screen");
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [movieImages, setmMovieImages] = useState();
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -101,37 +101,37 @@ const Home = () => {
 
           {popularMovies && (
             <View style={styles.carousel}>
-              <List title="Popular Movies" content={popularMovies} />
+              <List title="Popular Movies" content={popularMovies} navigation={navigation} />
             </View>
           )}
 
           {horror && (
             <View style={styles.carousel}>
-              <List title="Horror Movies" content={horror} />
+              <List title="Horror Movies" content={horror} navigation={navigation} />
             </View>
           )}
 
           {documentary && (
             <View style={styles.carousel}>
-              <List title="Popular Documentaries" content={documentary} />
+              <List title="Popular Documentaries" content={documentary} navigation={navigation}/>
             </View>
           )}
 
           {popularTv && (
             <View style={styles.carousel}>
-              <List title="Popular Tv's" content={popularTv} />
+              <List title="Popular Tv's" content={popularTv} navigation={navigation} />
             </View>
           )}
 
           {popularFamilies && (
             <View style={styles.carousel}>
-              <List title="Popular Family Shows" content={popularFamilies} />
+              <List title="Popular Family Shows" content={popularFamilies} navigation={navigation} />
             </View>
           )}
 
           {romance && (
             <View style={styles.carousel}>
-              <List title="Romantic Movies" content={romance} />
+              <List title="Romantic Movies" content={romance} navigation={navigation} />
             </View>
           )}
         </ScrollView>
