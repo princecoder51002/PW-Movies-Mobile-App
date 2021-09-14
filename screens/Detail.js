@@ -3,14 +3,14 @@ import { Video } from "expo-av";
 import VideoPlayer from 'expo-video-player'
 import {
   Image,
-  ScrollView,
   Text,
   StyleSheet,
   Dimensions,
   ActivityIndicator,
   View,
   Modal,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from "react-native";
 import StarRating from "react-native-star-rating";
 import { getMovie } from "../services/srvices";
@@ -22,7 +22,7 @@ const height = Dimensions.get("screen").height;
 const width = Dimensions.get("screen").width;
 
 const Detail = ({ route, navigation }) => {
-  const movieId = route.params.movieId;
+  const movieId = route.params;
   const [movieDetail, setMovieDetail] = useState();
   const [loaded, setLaoded] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -39,10 +39,12 @@ const Detail = ({ route, navigation }) => {
   }, [movieId]);
 
   return (
-    <React.Fragment>
+    <View>
+      
       {loaded && (
+        
         <View>
-          <ScrollView>
+          <ScrollView >
             <Image
               style={styles.image}
               resizeMode="cover"
@@ -86,7 +88,7 @@ const Detail = ({ route, navigation }) => {
                   dateFormat(movieDetail.release_date, "dS mmmm, yyyy")}
               </Text>
             </View>
-          </ScrollView>
+            </ScrollView>
 
           <Modal animationType="slide" visible={modalVisible} supportedOrientations={['portrait', 'landscape']} onRequestClose={() => videoShown()}>
             <View style={styles.Videocontainer}>
@@ -110,10 +112,12 @@ const Detail = ({ route, navigation }) => {
             </View>
           </Modal>
         </View>
+       
       )}
 
       {!loaded && <ActivityIndicator size="large" />}
-    </React.Fragment>
+      
+    </View>
   );
 };
 
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
     padding: 5,
     position: "relative",
     alignItems: "center",
-    height: 200,
+    flexGrow: 1
   },
 
   image: {
@@ -179,6 +183,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
+
+  listWrapper:{
+     flexGrow:1,
+},
 });
 
 export default Detail;

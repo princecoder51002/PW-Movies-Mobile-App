@@ -1,19 +1,15 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import PropTypes from 'prop-types';
 
 const PlaceHolderImage = require("../assets/noimage.png");
 
-const propTypes = {
-    item: PropTypes.object
-}
 
 class Card extends React.PureComponent {
   render() {
     const { item, navigation } = this.props;
     return (
       <View>
-        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Details', {movieId: item.id})}>
+        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Details', item.id)}>
           <Image
             style={styles.image}
             resizeMode="cover"
@@ -55,6 +51,5 @@ const styles = StyleSheet.create({
   },
 });
 
-Card.propTypes = propTypes;
 
 export default Card;
